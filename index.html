@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Camisa 10</title>
+    <link rel="preconnect" href="https://images.unsplash.com" />
+    <link rel="stylesheet" href="styles.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="site-header">
+      <a class="brand" href="#" aria-label="Camisa 10">
+        <span class="brand-mark">
+          <img src="assets/logo.png" alt="" />
+        </span>
+        <span>Camisa 10</span>
+      </a>
+
+      <nav class="main-nav" aria-label="Navegacao principal">
+        <a href="#produtos">Produtos</a>
+        <a href="#confeccoes">Confeccoes</a>
+        <a href="#categorias">Categorias</a>
+        <a href="#ofertas">WhatsApp</a>
+      </nav>
+
+      <button class="cart-button" type="button" aria-label="Abrir carrinho">
+        <span>Carrinho</span>
+        <strong id="cartCount">0</strong>
+      </button>
+    </header>
+
+    <main>
+      <section class="hero" aria-label="Loja esportiva Camisa 10">
+        <img
+          src="https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=1800&q=80"
+          alt="Time de futebol reunido em campo"
+        />
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+          <p class="eyebrow">Loja esportiva e uniformes personalizados</p>
+          <h1>Camisa 10</h1>
+          <p>
+            Chuteiras, mantos, manguitos, acessorios e uma linha completa de
+            confeccoes para times.
+          </p>
+          <div class="hero-actions">
+            <a class="primary-action" href="#produtos">Comprar produtos</a>
+            <a class="secondary-action" href="#confeccoes">Fazer uniforme</a>
+          </div>
+        </div>
+      </section>
+
+      <section class="quick-stats" aria-label="Beneficios da loja">
+        <article>
+          <strong>Produtos de jogo</strong>
+          <span>Chuteiras, mantos e acessorios</span>
+        </article>
+        <article>
+          <strong>Confeccao propria</strong>
+          <span>Camisa e short para equipes</span>
+        </article>
+        <article>
+          <strong>Atendimento rapido</strong>
+          <span>Orcamento direto no WhatsApp</span>
+        </article>
+      </section>
+
+      <section class="confection-section" id="confeccoes">
+        <div class="confection-content">
+          <p class="eyebrow">Confecções Camisa 10</p>
+          <h2>Uniforme do seu time pronto para entrar em quadra ou campo</h2>
+          <p>
+            Criamos camisas e shorts personalizados para futebol, volei,
+            basquete e tenis de mesa com cores, escudo, nomes, numeros e
+            patrocinadores.
+          </p>
+          <div class="confection-actions">
+            <a class="whatsapp-action" id="whatsappMain" href="#" target="_blank" rel="noreferrer">
+              Comecar pelo WhatsApp
+            </a>
+            <a class="outline-action" href="#processo">Ver processo</a>
+          </div>
+        </div>
+
+        <div class="funnel-grid" aria-label="Funil de confeccao">
+          <article>
+            <span>01</span>
+            <strong>Escolha a modalidade</strong>
+            <p>Futebol, volei, basquete ou tenis de mesa.</p>
+          </article>
+          <article>
+            <span>02</span>
+            <strong>Envie sua ideia</strong>
+            <p>Cores, escudo, patrocinio, nomes e numeros.</p>
+          </article>
+          <article>
+            <span>03</span>
+            <strong>Aprove a arte</strong>
+            <p>Montamos a proposta visual antes da producao.</p>
+          </article>
+          <article>
+            <span>04</span>
+            <strong>Feche no WhatsApp</strong>
+            <p>O pedido segue com atendimento direto e rapido.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section-shell" id="categorias">
+        <div class="section-heading">
+          <p class="eyebrow">Compre por categoria</p>
+          <h2>Produtos esportivos</h2>
+        </div>
+
+        <div class="category-grid">
+          <a class="category-tile" href="#produtos" data-category-link="Chuteiras">
+            <img
+              src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=80"
+              alt="Chuteira em campo"
+            />
+            <span>Chuteiras</span>
+          </a>
+          <a class="category-tile" href="#produtos" data-category-link="Mantos">
+            <img
+              src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=80"
+              alt="Camisas esportivas"
+            />
+            <span>Mantos</span>
+          </a>
+          <a class="category-tile" href="#produtos" data-category-link="Manguitos">
+            <img
+              src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"
+              alt="Atleta usando acessorios esportivos"
+            />
+            <span>Manguitos</span>
+          </a>
+          <a class="category-tile" href="#produtos" data-category-link="Acessorios">
+            <img
+              src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80"
+              alt="Acessorios esportivos"
+            />
+            <span>Acessorios</span>
+          </a>
+        </div>
+      </section>
+
+      <section class="shop-layout section-shell" id="produtos">
+        <aside class="filters" aria-label="Filtros de produtos">
+          <div>
+            <p class="eyebrow">Loja</p>
+            <h2>Produtos esportivos</h2>
+          </div>
+
+          <label class="search-field">
+            <span>Buscar</span>
+            <input id="searchInput" type="search" placeholder="Chuteira, manto, manguito..." />
+          </label>
+
+          <div class="filter-group" aria-label="Filtro por categoria">
+            <button class="filter-chip is-active" type="button" data-category="Todos">
+              Todos
+            </button>
+            <button class="filter-chip" type="button" data-category="Chuteiras">
+              Chuteiras
+            </button>
+            <button class="filter-chip" type="button" data-category="Mantos">
+              Mantos
+            </button>
+            <button class="filter-chip" type="button" data-category="Manguitos">
+              Manguitos
+            </button>
+            <button class="filter-chip" type="button" data-category="Acessorios">
+              Acessorios
+            </button>
+          </div>
+        </aside>
+
+        <div class="products-area">
+          <div class="toolbar">
+            <span id="productCount">0 produtos</span>
+            <select id="sortSelect" aria-label="Ordenar produtos">
+              <option value="featured">Mais relevantes</option>
+              <option value="price-low">Menor preco</option>
+              <option value="price-high">Maior preco</option>
+            </select>
+          </div>
+
+          <div class="product-grid" id="productGrid" aria-live="polite"></div>
+        </div>
+      </section>
+
+      <section class="promo-band" id="ofertas">
+        <div>
+          <p class="eyebrow">Atendimento direto</p>
+          <h2>Quer confeccionar camisa e short para o time?</h2>
+          <p>
+            Fale pelo WhatsApp, envie a modalidade, quantidade, cores e escudo.
+            A gente te guia ate fechar o uniforme ideal.
+          </p>
+        </div>
+        <a class="primary-action" id="whatsappOffer" href="#" target="_blank" rel="noreferrer">
+          Chamar no WhatsApp
+        </a>
+      </section>
+
+      <section class="training-section section-shell" id="processo">
+        <img
+          src="https://images.unsplash.com/photo-1577212017184-80cc0da11082?auto=format&fit=crop&w=1200&q=80"
+          alt="Uniformes esportivos pendurados"
+        />
+        <div>
+          <p class="eyebrow">Funil de confeccao</p>
+          <h2>Do primeiro contato ao uniforme pronto</h2>
+          <div class="goal-list">
+            <button type="button">1. Escolha a modalidade</button>
+            <button type="button">2. Envie cores e escudo</button>
+            <button type="button">3. Aprove a arte final</button>
+            <button type="button">4. Receba o kit do time</button>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <aside class="cart-panel" id="cartPanel" aria-label="Carrinho de compras">
+      <div class="cart-header">
+        <strong>Meu carrinho</strong>
+        <button type="button" id="closeCart" aria-label="Fechar carrinho">x</button>
+      </div>
+      <div id="cartItems" class="cart-items">
+        <p class="empty-cart">Seu carrinho esta vazio.</p>
+      </div>
+      <div class="cart-footer">
+        <span>Total</span>
+        <strong id="cartTotal">R$ 0,00</strong>
+      </div>
+      <button class="checkout-button" type="button">Finalizar compra</button>
+    </aside>
+  </body>
+</html>
