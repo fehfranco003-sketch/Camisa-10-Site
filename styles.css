@@ -169,17 +169,16 @@ h1 {
 }
 
 .hero-title-crop {
+  animation: titleReveal 520ms ease-out both;
+  background-image: url("assets/logo-tipografia.svg");
+  background-position: left center;
+  background-repeat: no-repeat;
+  background-size: contain;
   height: clamp(88px, 11vw, 132px);
   margin-bottom: 12px;
   max-width: min(410px, 78vw);
   overflow: hidden;
   width: clamp(245px, 34vw, 410px);
-}
-
-.hero-title-art {
-  animation: titleReveal 520ms ease-out both;
-  height: auto;
-  width: 100%;
 }
 
 @keyframes titleReveal {
