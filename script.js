@@ -1,154 +1,132 @@
-const products = [
+const catalogs = [
   {
     id: 1,
-    name: "Chuteira Campo Pro Strike",
-    category: "Chuteiras",
-    price: 289.9,
-    badge: "Campo",
+    name: "Bolas de Volei",
+    category: "Volei",
+    badge: "Catalogo WhatsApp",
+    description: "Modelos para treino, lazer e jogo.",
     image:
-      "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80",
+    url: "https://wa.me/p/8533288136683422/556792023030",
   },
   {
     id: 2,
-    name: "Chuteira Society Velocity",
-    category: "Chuteiras",
-    price: 249.9,
-    badge: "Society",
+    name: "Topper e Kagiva Campo e Society",
+    category: "Campo e Society",
+    badge: "Campo e society",
+    description: "Bolas para campo, society e rotina de treino.",
     image:
-      "https://images.unsplash.com/photo-1511886929837-354d827aae26?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=900&q=80",
+    url: "https://wa.me/p/24456481827288004/556792023030",
   },
   {
     id: 3,
-    name: "Manto Jogo Camisa 10",
-    category: "Mantos",
-    price: 129.9,
-    badge: "Dry fit",
+    name: "Bolas de Futsal",
+    category: "Futsal",
+    badge: "Quadra",
+    description: "Catalogo de bolas para futsal e jogo indoor.",
     image:
-      "https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=900&q=80",
+    url: "https://wa.me/p/7394343557264484/556792023030",
   },
   {
     id: 4,
-    name: "Manto Treino Performance",
-    category: "Mantos",
-    price: 99.9,
-    badge: "Leve",
+    name: "Bolas de Basquete",
+    category: "Basquete",
+    badge: "Basquete",
+    description: "Opcoes para quadra, treino e uso recreativo.",
     image:
-      "https://images.unsplash.com/photo-1551958219-acbc608c6377?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    id: 5,
-    name: "Manguito Compressao Black",
-    category: "Manguitos",
-    price: 39.9,
-    badge: "Protecao",
-    image:
-      "https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    id: 6,
-    name: "Manguito UV Branco",
-    category: "Manguitos",
-    price: 34.9,
-    badge: "UV",
-    image:
-      "https://images.unsplash.com/photo-1549576490-b0b4831ef60a?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    id: 7,
-    name: "Meiao Esportivo Elite",
-    category: "Acessorios",
-    price: 29.9,
-    badge: "Jogo",
-    image:
-      "https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80",
-  },
-  {
-    id: 8,
-    name: "Caneleira Flex Guard",
-    category: "Acessorios",
-    price: 49.9,
-    badge: "Protecao",
-    image:
-      "https://images.unsplash.com/photo-1553778263-73a83bab9b0c?auto=format&fit=crop&w=900&q=80",
+      "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80",
+    url: "https://wa.me/p/24791141093871602/556792023030",
   },
 ];
 
-const WHATSAPP_NUMBER = "5500000000000";
+const WHATSAPP_NUMBER = "556792023030";
 const WHATSAPP_MESSAGE =
-  "Ola, vim pelo site da Camisa 10 e quero fazer um orcamento de confeccao de camisas e shorts para meu time.";
-
-const currency = new Intl.NumberFormat("pt-BR", {
-  style: "currency",
-  currency: "BRL",
-});
+  "Ola, vim pelo site da Camisa 10 e quero atendimento para consultar produtos.";
 
 const state = {
   category: "Todos",
   search: "",
-  sort: "featured",
-  cart: [],
 };
-
-let nextCartId = 1;
 
 const productGrid = document.querySelector("#productGrid");
 const productCount = document.querySelector("#productCount");
 const searchInput = document.querySelector("#searchInput");
-const sortSelect = document.querySelector("#sortSelect");
 const filterButtons = document.querySelectorAll("[data-category]");
 const categoryLinks = document.querySelectorAll("[data-category-link]");
-const cartButton = document.querySelector(".cart-button");
-const cartPanel = document.querySelector("#cartPanel");
-const closeCart = document.querySelector("#closeCart");
-const cartItems = document.querySelector("#cartItems");
-const cartTotal = document.querySelector("#cartTotal");
-const cartCount = document.querySelector("#cartCount");
 const whatsappLinks = document.querySelectorAll("#whatsappMain, #whatsappOffer");
 
-function getVisibleProducts() {
-  const search = state.search.trim().toLowerCase();
-  let visible = products.filter((product) => {
-    const matchesCategory =
-      state.category === "Todos" || product.category === state.category;
-    const matchesSearch = product.name.toLowerCase().includes(search);
-    return matchesCategory && matchesSearch;
-  });
+function installMetaPixel() {
+  const pixelId = window.META_PIXEL_ID;
+  if (!pixelId) return;
 
-  if (state.sort === "price-low") {
-    visible = [...visible].sort((a, b) => a.price - b.price);
-  }
+  window.fbq =
+    window.fbq ||
+    function fbq() {
+      window.fbq.callMethod
+        ? window.fbq.callMethod.apply(window.fbq, arguments)
+        : window.fbq.queue.push(arguments);
+    };
+  window.fbq.push = window.fbq;
+  window.fbq.loaded = true;
+  window.fbq.version = "2.0";
+  window.fbq.queue = [];
 
-  if (state.sort === "price-high") {
-    visible = [...visible].sort((a, b) => b.price - a.price);
-  }
+  const script = document.createElement("script");
+  script.async = true;
+  script.src = "https://connect.facebook.net/en_US/fbevents.js";
+  document.head.appendChild(script);
 
-  return visible;
+  window.fbq("init", pixelId);
+  window.fbq("track", "PageView");
 }
 
-function renderProducts() {
-  const visibleProducts = getVisibleProducts();
-  productCount.textContent = `${visibleProducts.length} produto${
-    visibleProducts.length === 1 ? "" : "s"
+function trackCatalogClick(catalog) {
+  if (!window.fbq) return;
+  window.fbq("trackCustom", "WhatsAppCatalogClick", {
+    content_name: catalog.name,
+    content_category: catalog.category,
+  });
+}
+
+function getVisibleCatalogs() {
+  const search = state.search.trim().toLowerCase();
+
+  return catalogs.filter((catalog) => {
+    const matchesCategory =
+      state.category === "Todos" || catalog.category === state.category;
+    const matchesSearch = `${catalog.name} ${catalog.category} ${catalog.description}`
+      .toLowerCase()
+      .includes(search);
+    return matchesCategory && matchesSearch;
+  });
+}
+
+function renderCatalogs() {
+  const visibleCatalogs = getVisibleCatalogs();
+  productCount.textContent = `${visibleCatalogs.length} catalogo${
+    visibleCatalogs.length === 1 ? "" : "s"
   }`;
 
-  productGrid.innerHTML = visibleProducts
+  productGrid.innerHTML = visibleCatalogs
     .map(
-      (product) => `
-        <article class="product-card">
-          <div class="product-media">
-            <img src="${product.image}" alt="${product.name}" loading="lazy" />
-          </div>
-          <div class="product-info">
-            <div class="product-meta">
-              <span>${product.category}</span>
-              <span>${product.badge}</span>
+      (catalog) => `
+        <article class="product-card catalog-card">
+          <a href="${catalog.url}" target="_blank" rel="noreferrer" data-catalog="${catalog.id}">
+            <div class="product-media">
+              <img src="${catalog.image}" alt="${catalog.name}" loading="lazy" />
             </div>
-            <h3>${product.name}</h3>
-            <div class="price">${currency.format(product.price)}</div>
-            <button class="add-button" type="button" data-add="${product.id}">
-              Adicionar ao carrinho
-            </button>
-          </div>
+            <div class="product-info">
+              <div class="product-meta">
+                <span>${catalog.category}</span>
+                <span>${catalog.badge}</span>
+              </div>
+              <h3>${catalog.name}</h3>
+              <p>${catalog.description}</p>
+              <span class="catalog-cta">Ver catalogo no WhatsApp</span>
+            </div>
+          </a>
         </article>
       `
     )
@@ -160,64 +138,20 @@ function setCategory(category) {
   filterButtons.forEach((button) => {
     button.classList.toggle("is-active", button.dataset.category === category);
   });
-  renderProducts();
-}
-
-function renderCart() {
-  cartCount.textContent = state.cart.length;
-  const total = state.cart.reduce((sum, item) => sum + item.price, 0);
-  cartTotal.textContent = currency.format(total);
-
-  if (state.cart.length === 0) {
-    cartItems.innerHTML = '<p class="empty-cart">Seu carrinho esta vazio.</p>';
-    return;
-  }
-
-  cartItems.innerHTML = state.cart
-    .map(
-      (item) => `
-        <div class="cart-item">
-          <img src="${item.image}" alt="${item.name}" />
-          <div>
-            <strong>${item.name}</strong>
-            <span>${currency.format(item.price)}</span>
-          </div>
-          <button type="button" class="filter-chip" data-remove="${item.cartId}">
-            Remover
-          </button>
-        </div>
-      `
-    )
-    .join("");
+  renderCatalogs();
 }
 
 productGrid.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-add]");
-  if (!button) return;
+  const link = event.target.closest("[data-catalog]");
+  if (!link) return;
 
-  const product = products.find((item) => item.id === Number(button.dataset.add));
-  state.cart.push({ ...product, cartId: String(nextCartId) });
-  nextCartId += 1;
-  renderCart();
-  cartPanel.classList.add("is-open");
-});
-
-cartItems.addEventListener("click", (event) => {
-  const button = event.target.closest("[data-remove]");
-  if (!button) return;
-
-  state.cart = state.cart.filter((item) => item.cartId !== button.dataset.remove);
-  renderCart();
+  const catalog = catalogs.find((item) => item.id === Number(link.dataset.catalog));
+  if (catalog) trackCatalogClick(catalog);
 });
 
 searchInput.addEventListener("input", (event) => {
   state.search = event.target.value;
-  renderProducts();
-});
-
-sortSelect.addEventListener("change", (event) => {
-  state.sort = event.target.value;
-  renderProducts();
+  renderCatalogs();
 });
 
 filterButtons.forEach((button) => {
@@ -228,9 +162,6 @@ categoryLinks.forEach((link) => {
   link.addEventListener("click", () => setCategory(link.dataset.categoryLink));
 });
 
-cartButton.addEventListener("click", () => cartPanel.classList.add("is-open"));
-closeCart.addEventListener("click", () => cartPanel.classList.remove("is-open"));
-
 const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
   WHATSAPP_MESSAGE
 )}`;
@@ -239,5 +170,5 @@ whatsappLinks.forEach((link) => {
   link.href = whatsappUrl;
 });
 
-renderProducts();
-renderCart();
+installMetaPixel();
+renderCatalogs();

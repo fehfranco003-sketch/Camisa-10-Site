@@ -6,6 +6,9 @@
     <title>Camisa 10</title>
     <link rel="preconnect" href="https://images.unsplash.com" />
     <link rel="stylesheet" href="styles.css" />
+    <script>
+      window.META_PIXEL_ID = "";
+    </script>
     <script src="script.js" defer></script>
   </head>
   <body>
@@ -18,16 +21,11 @@
       </a>
 
       <nav class="main-nav" aria-label="Navegacao principal">
-        <a href="#produtos">Produtos</a>
+        <a href="#produtos">Catalogos</a>
         <a href="#confeccoes">Confeccoes</a>
         <a href="#categorias">Categorias</a>
         <a href="#ofertas">WhatsApp</a>
       </nav>
-
-      <button class="cart-button" type="button" aria-label="Abrir carrinho">
-        <span>Carrinho</span>
-        <strong id="cartCount">0</strong>
-      </button>
     </header>
 
     <main>
@@ -38,14 +36,21 @@
         />
         <div class="hero-overlay"></div>
         <div class="hero-content">
-          <p class="eyebrow">Loja esportiva e uniformes personalizados</p>
-          <h1>Camisa 10</h1>
+          <p class="eyebrow">Portfolio esportivo para consulta</p>
+          <div class="hero-title-crop" aria-hidden="true">
+            <img
+              class="hero-title-art"
+              src="assets/logo-tipografia.svg"
+              alt=""
+            />
+          </div>
+          <h1 class="visually-hidden">Camisa 10</h1>
           <p>
-            Chuteiras, mantos, manguitos, acessorios e uma linha completa de
-            confeccoes para times.
+            Consulte nossos catalogos de bolas, produtos esportivos e
+            confeccoes personalizadas pelo WhatsApp.
           </p>
           <div class="hero-actions">
-            <a class="primary-action" href="#produtos">Comprar produtos</a>
+            <a class="primary-action" href="#produtos">Ver catalogos</a>
             <a class="secondary-action" href="#confeccoes">Fazer uniforme</a>
           </div>
         </div>
@@ -54,7 +59,7 @@
       <section class="quick-stats" aria-label="Beneficios da loja">
         <article>
           <strong>Produtos de jogo</strong>
-          <span>Chuteiras, mantos e acessorios</span>
+          <span>Catalogos diretos no WhatsApp</span>
         </article>
         <article>
           <strong>Confeccao propria</strong>
@@ -62,7 +67,7 @@
         </article>
         <article>
           <strong>Atendimento rapido</strong>
-          <span>Orcamento direto no WhatsApp</span>
+          <span>Cliente consulta e chama para comprar</span>
         </article>
       </section>
 
@@ -109,38 +114,38 @@
 
       <section class="section-shell" id="categorias">
         <div class="section-heading">
-          <p class="eyebrow">Compre por categoria</p>
-          <h2>Produtos esportivos</h2>
+          <p class="eyebrow">Acesso rapido</p>
+          <h2>Categorias do portfolio</h2>
         </div>
 
         <div class="category-grid">
-          <a class="category-tile" href="#produtos" data-category-link="Chuteiras">
+          <a class="category-tile" href="#produtos" data-category-link="Volei">
             <img
-              src="https://images.unsplash.com/photo-1526232761682-d26e03ac148e?auto=format&fit=crop&w=900&q=80"
-              alt="Chuteira em campo"
+              src="https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80"
+              alt="Bola de volei em quadra"
             />
-            <span>Chuteiras</span>
+            <span>Bolas de Volei</span>
           </a>
-          <a class="category-tile" href="#produtos" data-category-link="Mantos">
+          <a class="category-tile" href="#produtos" data-category-link="Campo e Society">
             <img
-              src="https://images.unsplash.com/photo-1579952363873-27f3bade9f55?auto=format&fit=crop&w=900&q=80"
-              alt="Camisas esportivas"
+              src="https://images.unsplash.com/photo-1518091043644-c1d4457512c6?auto=format&fit=crop&w=900&q=80"
+              alt="Bola de futebol em campo"
             />
-            <span>Mantos</span>
+            <span>Campo e Society</span>
           </a>
-          <a class="category-tile" href="#produtos" data-category-link="Manguitos">
+          <a class="category-tile" href="#produtos" data-category-link="Futsal">
             <img
-              src="https://images.unsplash.com/photo-1518611012118-696072aa579a?auto=format&fit=crop&w=900&q=80"
-              alt="Atleta usando acessorios esportivos"
+              src="https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=900&q=80"
+              alt="Bola de futsal"
             />
-            <span>Manguitos</span>
+            <span>Futsal</span>
           </a>
-          <a class="category-tile" href="#produtos" data-category-link="Acessorios">
+          <a class="category-tile" href="#produtos" data-category-link="Basquete">
             <img
-              src="https://images.unsplash.com/photo-1517649763962-0c623066013b?auto=format&fit=crop&w=900&q=80"
-              alt="Acessorios esportivos"
+              src="https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80"
+              alt="Bola de basquete em quadra"
             />
-            <span>Acessorios</span>
+            <span>Basquete</span>
           </a>
         </div>
       </section>
@@ -148,42 +153,37 @@
       <section class="shop-layout section-shell" id="produtos">
         <aside class="filters" aria-label="Filtros de produtos">
           <div>
-            <p class="eyebrow">Loja</p>
-            <h2>Produtos esportivos</h2>
+            <p class="eyebrow">Catalogos</p>
+            <h2>Escolha e chame no WhatsApp</h2>
           </div>
 
           <label class="search-field">
             <span>Buscar</span>
-            <input id="searchInput" type="search" placeholder="Chuteira, manto, manguito..." />
+            <input id="searchInput" type="search" placeholder="Volei, futsal, basquete..." />
           </label>
 
           <div class="filter-group" aria-label="Filtro por categoria">
             <button class="filter-chip is-active" type="button" data-category="Todos">
               Todos
             </button>
-            <button class="filter-chip" type="button" data-category="Chuteiras">
-              Chuteiras
+            <button class="filter-chip" type="button" data-category="Volei">
+              Volei
             </button>
-            <button class="filter-chip" type="button" data-category="Mantos">
-              Mantos
+            <button class="filter-chip" type="button" data-category="Campo e Society">
+              Campo e Society
             </button>
-            <button class="filter-chip" type="button" data-category="Manguitos">
-              Manguitos
+            <button class="filter-chip" type="button" data-category="Futsal">
+              Futsal
             </button>
-            <button class="filter-chip" type="button" data-category="Acessorios">
-              Acessorios
+            <button class="filter-chip" type="button" data-category="Basquete">
+              Basquete
             </button>
           </div>
         </aside>
 
         <div class="products-area">
           <div class="toolbar">
-            <span id="productCount">0 produtos</span>
-            <select id="sortSelect" aria-label="Ordenar produtos">
-              <option value="featured">Mais relevantes</option>
-              <option value="price-low">Menor preco</option>
-              <option value="price-high">Maior preco</option>
-            </select>
+            <span id="productCount">0 catalogos</span>
           </div>
 
           <div class="product-grid" id="productGrid" aria-live="polite"></div>
@@ -222,19 +222,5 @@
       </section>
     </main>
 
-    <aside class="cart-panel" id="cartPanel" aria-label="Carrinho de compras">
-      <div class="cart-header">
-        <strong>Meu carrinho</strong>
-        <button type="button" id="closeCart" aria-label="Fechar carrinho">x</button>
-      </div>
-      <div id="cartItems" class="cart-items">
-        <p class="empty-cart">Seu carrinho esta vazio.</p>
-      </div>
-      <div class="cart-footer">
-        <span>Total</span>
-        <strong id="cartTotal">R$ 0,00</strong>
-      </div>
-      <button class="checkout-button" type="button">Finalizar compra</button>
-    </aside>
   </body>
 </html>
