@@ -30,10 +30,16 @@
 
     <main>
       <section class="hero" aria-label="Loja esportiva Camisa 10">
-        <img
-          src="assets/hero-estadio-camisa10.png"
-          alt="Representante esportivo em estádio iluminado"
-        />
+        <picture class="hero-media">
+          <source
+            srcset="assets/hero-estadio-mobile.png"
+            media="(max-width: 760px), (max-aspect-ratio: 4/5)"
+          />
+          <img
+            src="assets/hero-estadio-camisa10.png"
+            alt="Representante esportivo em estádio iluminado"
+          />
+        </picture>
         <div class="hero-overlay"></div>
         <div class="hero-content">
           <p class="eyebrow">Portfólio esportivo para consulta</p>

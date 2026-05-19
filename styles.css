@@ -121,13 +121,17 @@ img {
   position: relative;
 }
 
-.hero > img {
+.hero-media,
+.hero-media img {
   height: 100%;
   inset: 0;
-  object-fit: cover;
-  object-position: 72% top;
   position: absolute;
   width: 100%;
+}
+
+.hero-media img {
+  object-fit: cover;
+  object-position: 72% top;
 }
 
 .hero-overlay {
@@ -623,7 +627,7 @@ h2 {
     position: static;
   }
 
-  .hero > img {
+  .hero-media img {
     object-position: 76% top;
   }
 }
@@ -637,8 +641,8 @@ h2 {
     min-height: 680px;
   }
 
-  .hero > img {
-    object-position: 78% top;
+  .hero-media img {
+    object-position: center bottom;
   }
 
   .hero-overlay {
