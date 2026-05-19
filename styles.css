@@ -125,6 +125,7 @@ img {
   height: 100%;
   inset: 0;
   object-fit: cover;
+  object-position: 72% top;
   position: absolute;
   width: 100%;
 }
@@ -621,6 +622,10 @@ h2 {
   .filters {
     position: static;
   }
+
+  .hero > img {
+    object-position: 76% top;
+  }
 }
 
 @media (max-width: 640px) {
@@ -629,7 +634,20 @@ h2 {
   }
 
   .hero {
-    min-height: 640px;
+    min-height: 680px;
+  }
+
+  .hero > img {
+    object-position: 78% top;
+  }
+
+  .hero-overlay {
+    background: linear-gradient(
+      90deg,
+      rgba(12, 18, 15, 0.92),
+      rgba(12, 18, 15, 0.72) 56%,
+      rgba(12, 18, 15, 0.2)
+    );
   }
 
   .quick-stats,

@@ -1,9 +1,9 @@
 const catalogs = [
   {
     id: 1,
-    name: "Bolas de Volei",
-    category: "Volei",
-    badge: "Catalogo WhatsApp",
+    name: "Bolas de Vôlei",
+    category: "Vôlei",
+    badge: "Catálogo WhatsApp",
     description: "Modelos para treino, lazer e jogo.",
     image:
       "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?auto=format&fit=crop&w=900&q=80",
@@ -24,7 +24,7 @@ const catalogs = [
     name: "Bolas de Futsal",
     category: "Futsal",
     badge: "Quadra",
-    description: "Catalogo de bolas para futsal e jogo indoor.",
+    description: "Catálogo de bolas para futsal e jogo indoor.",
     image:
       "https://images.unsplash.com/photo-1575361204480-aadea25e6e68?auto=format&fit=crop&w=900&q=80",
     url: "https://wa.me/p/7394343557264484/556792023030",
@@ -34,7 +34,7 @@ const catalogs = [
     name: "Bolas de Basquete",
     category: "Basquete",
     badge: "Basquete",
-    description: "Opcoes para quadra, treino e uso recreativo.",
+    description: "Opções para quadra, treino e uso recreativo.",
     image:
       "https://images.unsplash.com/photo-1546519638-68e109498ffc?auto=format&fit=crop&w=900&q=80",
     url: "https://wa.me/p/24791141093871602/556792023030",
@@ -43,7 +43,7 @@ const catalogs = [
 
 const WHATSAPP_NUMBER = "556792023030";
 const WHATSAPP_MESSAGE =
-  "Ola, vim pelo site da Camisa 10 e quero atendimento para consultar produtos.";
+  "Olá, vim pelo site da Camisa 10 e quero atendimento para consultar produtos.";
 
 const state = {
   category: "Todos",
@@ -105,7 +105,7 @@ function getVisibleCatalogs() {
 
 function renderCatalogs() {
   const visibleCatalogs = getVisibleCatalogs();
-  productCount.textContent = `${visibleCatalogs.length} catalogo${
+  productCount.textContent = `${visibleCatalogs.length} catálogo${
     visibleCatalogs.length === 1 ? "" : "s"
   }`;
 
@@ -124,7 +124,7 @@ function renderCatalogs() {
               </div>
               <h3>${catalog.name}</h3>
               <p>${catalog.description}</p>
-              <span class="catalog-cta">Ver catalogo no WhatsApp</span>
+              <span class="catalog-cta">Ver catálogo no WhatsApp</span>
             </div>
           </a>
         </article>
