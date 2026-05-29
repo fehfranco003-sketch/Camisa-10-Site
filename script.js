@@ -1,4 +1,4 @@
-const catalogs = [
+﻿const catalogs = [
   {
     id: 1,
     name: "Bolas de Vôlei",
@@ -41,6 +41,7 @@ const catalogs = [
   },
 ];
 
+const MERCADO_LIVRE_URL = "https://www.mercadolivre.com.br/pagina/camisa10esportes";
 const WHATSAPP_NUMBER = "556792023030";
 const WHATSAPP_MESSAGE =
   "Olá, vim pelo site da Camisa 10 e quero atendimento para consultar produtos.";
@@ -55,7 +56,8 @@ const productCount = document.querySelector("#productCount");
 const searchInput = document.querySelector("#searchInput");
 const filterButtons = document.querySelectorAll("[data-category]");
 const categoryLinks = document.querySelectorAll("[data-category-link]");
-const whatsappLinks = document.querySelectorAll("#whatsappMain, #whatsappOffer");
+const whatsappLinks = document.querySelectorAll("#whatsappMain, #whatsappOffer, #whatsappConfection");
+const marketplaceLinks = document.querySelectorAll("#mercadoLivreHero, #mercadoLivreStore");
 
 function installMetaPixel() {
   const pixelId = window.META_PIXEL_ID;
@@ -90,6 +92,15 @@ function trackCatalogClick(catalog) {
   });
 }
 
+
+function trackMarketplaceClick(catalog) {
+  if (!window.fbq) return;
+  window.fbq("trackCustom", "MarketplaceClick", {
+    marketplace: "Mercado Livre",
+    content_name: catalog ? catalog.name : "Loja Camisa 10",
+    content_category: catalog ? catalog.category : "Loja",
+  });
+}
 function getVisibleCatalogs() {
   const search = state.search.trim().toLowerCase();
 
@@ -113,20 +124,25 @@ function renderCatalogs() {
     .map(
       (catalog) => `
         <article class="product-card catalog-card">
-          <a href="${catalog.url}" target="_blank" rel="noreferrer" data-catalog="${catalog.id}">
-            <div class="product-media">
-              <img src="${catalog.image}" alt="${catalog.name}" loading="lazy" />
+          <div class="product-media">
+            <img src="${catalog.image}" alt="${catalog.name}" loading="lazy" />
+          </div>
+          <div class="product-info">
+            <div class="product-meta">
+              <span>${catalog.category}</span>
+              <span>${catalog.badge}</span>
             </div>
-            <div class="product-info">
-              <div class="product-meta">
-                <span>${catalog.category}</span>
-                <span>${catalog.badge}</span>
-              </div>
-              <h3>${catalog.name}</h3>
-              <p>${catalog.description}</p>
-              <span class="catalog-cta">Ver catálogo no WhatsApp</span>
+            <h3>${catalog.name}</h3>
+            <p>${catalog.description}</p>
+            <div class="catalog-actions">
+              <a class="catalog-cta marketplace-cta" href="${MERCADO_LIVRE_URL}" target="_blank" rel="noreferrer" data-marketplace="${catalog.id}">
+                Ver no Mercado Livre
+              </a>
+              <a class="catalog-cta whatsapp-cta" href="${catalog.url}" target="_blank" rel="noreferrer" data-catalog="${catalog.id}">
+                Ver no WhatsApp
+              </a>
             </div>
-          </a>
+          </div>
         </article>
       `
     )
@@ -149,6 +165,14 @@ productGrid.addEventListener("click", (event) => {
   if (catalog) trackCatalogClick(catalog);
 });
 
+
+productGrid.addEventListener("click", (event) => {
+  const link = event.target.closest("[data-marketplace]");
+  if (!link) return;
+
+  const catalog = catalogs.find((item) => item.id === Number(link.dataset.marketplace));
+  trackMarketplaceClick(catalog);
+});
 searchInput.addEventListener("input", (event) => {
   state.search = event.target.value;
   renderCatalogs();
@@ -168,6 +192,11 @@ const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
 
 whatsappLinks.forEach((link) => {
   link.href = whatsappUrl;
+});
+
+marketplaceLinks.forEach((link) => {
+  link.href = MERCADO_LIVRE_URL;
+  link.addEventListener("click", () => trackMarketplaceClick());
 });
 
 installMetaPixel();

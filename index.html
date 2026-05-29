@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="pt-BR">
   <head>
     <meta charset="UTF-8" />
@@ -21,7 +21,8 @@
       </a>
 
       <nav class="main-nav" aria-label="Navegação principal">
-        <a href="#produtos">Catálogos</a>
+        <a href="#produtos">Produtos</a>
+        <a href="#mercado-livre">Mercado Livre</a>
         <a href="#confeccoes">Confecções</a>
         <a href="#categorias">Categorias</a>
         <a href="#ofertas">WhatsApp</a>
@@ -46,12 +47,12 @@
           <div class="hero-title-crop" aria-hidden="true"></div>
           <h1 class="visually-hidden">Camisa 10</h1>
           <p>
-            Consulte nossos catálogos de bolas, produtos esportivos e
-            confecções personalizadas pelo WhatsApp.
+            Escolha seu produto e compre pela plataforma que você prefere: Mercado Livre, WhatsApp e, em breve, Shopee e Magalu.
           </p>
           <div class="hero-actions">
-            <a class="primary-action" href="#produtos">Ver catálogos</a>
-            <a class="secondary-action" href="#confeccoes">Fazer uniforme</a>
+            <a class="primary-action" id="mercadoLivreHero" href="#" target="_blank" rel="noreferrer">Comprar no Mercado Livre</a>
+            <a class="secondary-action" href="#produtos">Ver produtos</a>
+            <a class="secondary-action" href="#confeccoes">Confecção pelo WhatsApp</a>
           </div>
         </div>
       </section>
@@ -59,59 +60,33 @@
       <section class="quick-stats" aria-label="Beneficios da loja">
         <article>
           <strong>Produtos de jogo</strong>
-          <span>Catálogos diretos no WhatsApp</span>
+          <span>Mercado Livre e WhatsApp</span>
         </article>
         <article>
-          <strong>Confecção própria</strong>
-          <span>Camisa e short para equipes</span>
+          <strong>Compra protegida</strong>
+          <span>Pague pela plataforma que preferir</span>
         </article>
         <article>
           <strong>Atendimento rápido</strong>
-          <span>Cliente consulta e chama para comprar</span>
+          <span>WhatsApp para dúvidas e uniformes</span>
         </article>
       </section>
-
-      <section class="confection-section" id="confeccoes">
-        <div class="confection-content">
-          <p class="eyebrow">Confecções Camisa 10</p>
-          <h2>Uniforme do seu time pronto para entrar em quadra ou campo</h2>
+      <section class="marketplace-section" id="mercado-livre">
+        <div>
+          <p class="eyebrow">Compra segura</p>
+          <h2>Compre Camisa 10 pelo Mercado Livre</h2>
           <p>
-            Criamos camisas e shorts personalizados para futebol, vôlei,
-            basquete e tênis de mesa com cores, escudo, nomes, números e
-            patrocinadores.
+            Acesse nossa página no Mercado Livre para comprar com pagamento pela plataforma,
+            entrega acompanhada e compra protegida.
           </p>
-          <div class="confection-actions">
-            <a class="whatsapp-action" id="whatsappMain" href="#" target="_blank" rel="noreferrer">
-              Começar pelo WhatsApp
-            </a>
-            <a class="outline-action" href="#processo">Ver processo</a>
-          </div>
         </div>
-
-        <div class="funnel-grid" aria-label="Funil de confecção">
-          <article>
-            <span>01</span>
-            <strong>Escolha a modalidade</strong>
-            <p>Futebol, vôlei, basquete ou tênis de mesa.</p>
-          </article>
-          <article>
-            <span>02</span>
-            <strong>Envie sua ideia</strong>
-            <p>Cores, escudo, patrocínio, nomes e números.</p>
-          </article>
-          <article>
-            <span>03</span>
-            <strong>Aprove a arte</strong>
-            <p>Montamos a proposta visual antes da produção.</p>
-          </article>
-          <article>
-            <span>04</span>
-            <strong>Feche no WhatsApp</strong>
-            <p>O pedido segue com atendimento direto e rápido.</p>
-          </article>
+        <div class="marketplace-actions">
+          <a class="marketplace-button mercado-livre" id="mercadoLivreStore" href="#" target="_blank" rel="noreferrer">
+            Acessar Mercado Livre
+          </a>
+          <span class="marketplace-soon">Shopee e Magalu entram aqui quando você enviar os links.</span>
         </div>
       </section>
-
       <section class="section-shell" id="categorias">
         <div class="section-heading">
           <p class="eyebrow">Acesso rápido</p>
@@ -190,37 +165,33 @@
         </div>
       </section>
 
+
+      <section class="whatsapp-confection" id="confeccoes">
+        <div>
+          <p class="eyebrow">Confecções personalizadas</p>
+          <h2>Camisas e shorts para o seu time</h2>
+          <p>
+            Para uniformes personalizados, o atendimento é direto pelo WhatsApp.
+            Envie modalidade, quantidade, cores, escudo, nomes e números para receber orientação rápida.
+          </p>
+        </div>
+        <a class="whatsapp-action" id="whatsappConfection" href="#" target="_blank" rel="noreferrer">
+          Fazer orçamento no WhatsApp
+        </a>
+      </section>
       <section class="promo-band" id="ofertas">
         <div>
           <p class="eyebrow">Atendimento direto</p>
-          <h2>Quer confeccionar camisa e short para o time?</h2>
+          <h2>Precisa de ajuda para escolher?</h2>
           <p>
-            Fale pelo WhatsApp, envie a modalidade, quantidade, cores e escudo.
-            A gente te guia até fechar o uniforme ideal.
+            Fale pelo WhatsApp para tirar dúvidas, conferir disponibilidade ou escolher o melhor produto.
+            A gente te direciona para o catálogo certo e facilita sua compra.
           </p>
         </div>
         <a class="primary-action" id="whatsappOffer" href="#" target="_blank" rel="noreferrer">
           Chamar no WhatsApp
         </a>
-      </section>
-
-      <section class="training-section section-shell" id="processo">
-        <img
-          src="https://images.unsplash.com/photo-1577212017184-80cc0da11082?auto=format&fit=crop&w=1200&q=80"
-          alt="Uniformes esportivos pendurados"
-        />
-        <div>
-          <p class="eyebrow">Funil de confecção</p>
-          <h2>Do primeiro contato ao uniforme pronto</h2>
-          <div class="goal-list">
-            <button type="button">1. Escolha a modalidade</button>
-            <button type="button">2. Envie cores e escudo</button>
-            <button type="button">3. Aprove a arte final</button>
-            <button type="button">4. Receba o kit do time</button>
-          </div>
-        </div>
-      </section>
-    </main>
+      </section></main>
 
   </body>
 </html>
